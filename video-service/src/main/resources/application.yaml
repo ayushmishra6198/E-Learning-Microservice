@@ -1,0 +1,49 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: video-services
+
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: videodb
+      config:
+        enabled: true
+        write:
+          writeConcern:
+            isMajority: true
+          timeout:
+            milliseconds: 100000000000000
+ 
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+  endpoint:
+    shutdown: true
+
+  info:
+    env:
+      enabled: true
+
+
+info:
+  app:
+    name: "video-service"
+    description:  "This is video service"
+    version: "1.0"
